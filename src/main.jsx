@@ -4,11 +4,13 @@ import "./index.css";
 import App from "./App.jsx";
 import { store } from "./app/store.js";
 import { Provider } from "react-redux";
+import { Toaster } from "react-hot-toast";
 
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <StrictMode>
       <App />
+      <Toaster/>
     </StrictMode>
   </Provider>
 );
