@@ -44,7 +44,7 @@ const HomePage = () => {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex gap-4 justify-between mt-4">
+      <div className="flex gap-4 justify-between mt-4 px-28">
         <input
           type="text"
           placeholder="Enter title here"
@@ -57,9 +57,9 @@ const HomePage = () => {
         </button>
       </div>
 
-      <div>
+      <div className="px-28">
         <textarea
-          className="rounded-xl border border-gray-400 p-2 min-w-[35rem]"
+          className="rounded-xl border border-gray-400 p-2 min-w-[100%]"
           value={value}
           placeholder="Enter note here"
           onChange={(e) => setValues(e.target.value)}

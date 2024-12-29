@@ -9,7 +9,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <div>
+      <div className="min-w-[100%]">
         <NavBar />
         <HomePage />
       </div>
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
   {
     path: "/notes",
     element: (
-      <div>
+      <div className="min-w-[80vw]">
         <NavBar />
         <Notes />
       </div>
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
   {
     path: "/notes/:id",
     element: (
-      <div>
+      <div className="min-w-[80vw]">
         <NavBar />
         <NotesView />
       </div>
