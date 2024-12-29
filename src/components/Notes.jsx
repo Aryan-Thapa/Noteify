@@ -53,32 +53,33 @@ const Notes = () => {
       <div className="notesContainer flex flex-col gap-2 border border-gray-300 mt-6 rounded-lg shadow-2xl ">
         <h1>All Notes</h1>
         <div className="flex flex-col gap-5 p-4 border-t border-gray-300 h-[28rem] overflow-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-500 focus:outline-none">
-          {filteredData.length > 0 &&
-            filteredData.map((note) => {
-              return (
-                <div key={note.id}>
-                  <NoteCard
-                    title={note?.title}
-                    content={note?.content}
-                    createdAt={note?.createdAt}
-                    onDelete={() => handleDelete(note?.id)}
-                    onCopy={() => {
-                      navigator.clipboard.writeText(note?.content);
-                      toast.success("Content copied to clipboard");
-                    }}
-                    onView={() => {
-                      navigate(`/notes/${note?.id}`);
-                    }}
-                    onEdit={() => {
-                      navigate(`/?noteId=${note?.id}`);
-                    }}
-                    onShare={() =>
-                      handleShare(note?.title, note?.content, note?.id)
-                    }
-                  />
-                </div>
-              );
-            })}
+          {filteredData.length === 0 ? (
+            <p className="text-center text-gray-500">No Notes added yet</p>
+          ) : (
+            filteredData.map((note) => (
+              <div key={note.id}>
+                <NoteCard
+                  title={note?.title}
+                  content={note?.content}
+                  createdAt={note?.createdAt}
+                  onDelete={() => handleDelete(note?.id)}
+                  onCopy={() => {
+                    navigator.clipboard.writeText(note?.content);
+                    toast.success("Content copied to clipboard");
+                  }}
+                  onView={() => {
+                    navigate(`/notes/${note?.id}`);
+                  }}
+                  onEdit={() => {
+                    navigate(`/?noteId=${note?.id}`);
+                  }}
+                  onShare={() =>
+                    handleShare(note?.title, note?.content, note?.id)
+                  }
+                />
+              </div>
+            ))
+          )}
         </div>
       </div>
     </div>
